@@ -1,0 +1,251 @@
+:root {
+    --bg-dark: #050505;
+    --sidebar-bg: #0d0d0f;
+    --text-main: #ffffff;
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Pretendard', sans-serif;
+    display: flex;
+}
+
+/* 사이드바 스타일 유지 */
+.sidebar {
+    width: 240px;
+    height: 100vh;
+    background: var(--sidebar-bg);
+    position: fixed;
+    padding: 30px 20px;
+    border-right: 1px solid var(--border-color);
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.2rem;
+    letter-spacing: 5px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 50px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 20px;
+}
+
+.sidebar ul { list-style: none; padding: 0; }
+.nav-link {
+    color: #666;
+    text-decoration: none;
+    padding: 12px 0;
+    display: block;
+    transition: 0.4s;
+    font-weight: 300;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #fff;
+    padding-left: 10px;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+/* 메인 컨텐츠 (중앙 정렬 중심) */
+.content {
+    margin-left: 240px;
+    width: calc(100% - 240px);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 수평 중앙 정렬 */
+}
+
+.apostle-section {
+    display: none;
+    width: 100%;
+    max-width: 1000px; /* 너무 퍼지지 않게 제한 */
+    padding: 80px 20px;
+    animation: fadeIn 1s ease;
+}
+
+.apostle-section.active { display: block; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 헤더 텍스트 */
+.section-header {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.name {
+    font-size: 3.5rem;
+    color: var(--theme-color);
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.desc {
+    color: #888;
+    font-size: 1.2rem;
+}
+
+/* 이미지 컨테이너 (하나씩 세로 나열) */
+.media-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 70px; /* 이미지 사이 간격 */
+    margin-bottom: 120px;
+}
+
+.media-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.media-title {
+    font-size: 0.9rem;
+    color: var(--theme-color);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    opacity: 0.7;
+}
+
+
+/* 부하 섹션 */
+/* 수하 전체 아카이브 컨테이너 */
+.minions-archive {
+    width: 100%;
+    margin-top: 150px;
+    border-top: 2px solid var(--border-color);
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.category-title {
+    font-size: 2rem;
+    letter-spacing: 10px;
+    margin-bottom: 80px;
+    color: #444; /* 배경과 조화로운 저채도 색상 */
+}
+
+/* 개별 수하 아이템 */
+.subordinate-item {
+    width: 100%;
+    margin-bottom: 200px; /* 수하 간의 넓은 간격으로 위엄 강조 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sub-info {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.sub-label {
+    font-size: 0.8rem;
+    color: #f3de81;
+    letter-spacing: 2px;
+    opacity: 0.6;
+}
+
+.sub-name {
+    font-size: 2.2rem;
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+/* 미디어 레이아웃 (일러스트/도트 세로 배치) */
+.sub-media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+    width: 100%;
+}
+
+.media-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.media-tag {
+    font-size: 0.7rem;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+/* 미디어 태그 옆에 선 추가 (디자인 포인트) */
+.media-tag::before, .media-tag::after {
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 1px;
+    background: #333;
+    vertical-align: middle;
+    margin: 0 15px;
+}
+
+/* 이미지 스타일은 이전 가이드 유지 */
+.main-illust {
+    /* 핵심: 원본보다 커지지 않게 설정 */
+    max-width: 100%; 
+    max-height: 1000px; /* 세로가 너무 길어지는 것 방지 */
+    
+    /* 작은 이미지는 원본 크기 유지, 큰 이미지만 비율 맞춰 축소 */
+    width: auto;
+    height: auto;
+    
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    
+}
+
+
+.sub-illust {
+    /* 핵심: 원본보다 커지지 않게 설정 */
+    max-width: 100%; 
+    max-height: 900px; /* 세로가 너무 길어지는 것 방지 */
+    
+    /* 작은 이미지는 원본 크기 유지, 큰 이미지만 비율 맞춰 축소 */
+    width: auto;
+    height: auto;
+    
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+.pixel-art {
+    /* 핵심: 원본 사이즈(1:1) 유지 */
+    width: auto;
+    height: auto;
+    max-width: 100%; /* 부모 너비는 넘지 않게 */
+    
+    /* 확대 방지 및 도트 선명도 유지 */
+    image-rendering: pixelated; 
+    
+    /* 만약 도트가 너무 작아서 아주 약간만 키우고 싶다면 
+       transform: scale(1); 을 유지하거나 삭제하세요. */
+    transform: none; 
+    
+    margin: 40px auto;
+    display: block;
+}
