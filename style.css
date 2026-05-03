@@ -161,9 +161,10 @@ body {
 }
 
 .sub-name {
-    font-size: 2.2rem;
+    font-size: 2.0rem;
     margin-top: 10px;
-    font-weight: 700;
+    font-weight: 600;
+    color: #f3de81;
 }
 
 /* 미디어 레이아웃 (일러스트/도트 세로 배치) */
@@ -183,10 +184,10 @@ body {
 }
 
 .media-tag {
-    font-size: 0.7rem;
+    font-size: 1.2rem;
     color: #555;
     text-transform: uppercase;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
     margin-bottom: 25px;
     position: relative;
 }
