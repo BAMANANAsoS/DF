@@ -1,5 +1,5 @@
 :root {
-    --bg-dark: #050505;
+    --bg-dark: #141414;
     --sidebar-bg: #0d0d0f;
     --text-main: #ffffff;
     --border-color: rgba(255, 255, 255, 0.1);
@@ -150,21 +150,59 @@ body {
 
 .sub-info {
     text-align: center;
-    margin-bottom: 10px;
 }
 
 .sub-label {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: #f3de81;
     letter-spacing: 2px;
     opacity: 0.6;
 }
 
 .sub-name {
-    font-size: 2.0rem;
-    margin-top: 10px;
+    font-size: 1.8rem; /* 크기 약간 확대 */
+    margin: 15px;
     font-weight: 600;
-    color: #f3de81;
+    color: #f3e6c2;
+    letter-spacing: 6px; /* 자간을 넓혀 위엄 강조 */
+    text-transform: uppercase;
+    /* 은은한 금색 글로우 효과로 웅장함 부여 */
+    transition: 0.3s;
+}
+
+
+/* 일러스트 접기/펼치기 스타일 */
+.illust-fold {
+    width: 100%;
+    margin-bottom: 40px;
+    cursor: pointer;
+}
+
+.illust-fold summary {
+    list-style: none; /* 기본 화살표 제거 */
+    color: #888;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    width: fit-content;
+    margin: 0 auto 20px;
+    transition: 0.3s;
+}
+
+.illust-fold summary:hover {
+    color: #fff;
+    border-color: #fff;
+}
+
+/* 펼쳐질 때 애니메이션 */
+.illust-fold[open] .sub-illust {
+    animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* 미디어 레이아웃 (일러스트/도트 세로 배치) */
@@ -172,7 +210,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 100px;
+    gap: 0px;
     width: 100%;
 }
 
@@ -249,4 +287,52 @@ body {
     
     margin: 40px auto;
     display: block;
+}
+
+.subordinate-item:not(:last-child)::after {
+    content: "";
+    display: block;
+    width: 60%; /* 전체 너비의 60% 정도만 차지하여 세련되게 */
+    height: 1px;
+    margin: 100px auto; /* 몬스터 사이의 간격을 정밀하게 조절 */
+    
+    /* 중앙은 밝고 양 끝은 투명하게 사라지는 세련된 그라데이션 */
+    background: linear-gradient(
+        to right, 
+        transparent, 
+        rgba(145,145,145, 0.5), /* 서브 네임에 사용된 금색 계열 활용 */
+        transparent
+    );
+    
+    /* 중앙에 작은 마름모 포인트를 추가하여 고급스러움 강조 */
+    position: relative;
+}
+
+
+/* 수하 간의 기존 마진 조정 */
+.subordinate-item {
+    width: 100%;
+    margin-bottom: 0px; /* 구분선 안의 margin으로 제어하므로 0으로 변경[cite: 1, 2] */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.addill {
+    margin-top: 40px;
+}
+
+/* 코드2.txt 하단에 추가 */
+
+/* 사도 목록과 안개신 사이의 큰 공백 */
+.nav-separator {
+    margin-top: 50px; /* 사도들과의 간격 조절 */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+}
+
+/* 리스트 아이템 간격 세부 조절 */
+.special-item {
+    padding-left: 5px;
 }
